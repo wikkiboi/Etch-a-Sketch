@@ -18,7 +18,8 @@ const createGrid = (amtofGrids) => {
 
             gridBox.addEventListener('mouseover', () => {
                 gridBox.style.backgroundColor = 'black';
-            })
+            });
+            
             row.appendChild(gridBox);
         }
         
@@ -28,3 +29,15 @@ const createGrid = (amtofGrids) => {
 }
 
 createGrid(sizeofGrid);
+
+resetButton.addEventListener('click', () => {
+    let userSize = Number(prompt('What dimensions do you want for the new grid'));
+
+    while (userSize > 100) {
+        userSize = Number(prompt('Enter a number less than 100'));
+    }
+
+    container.innerHTML = '';
+    createGrid(userSize);
+});
+
